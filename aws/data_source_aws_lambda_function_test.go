@@ -331,7 +331,7 @@ resource "aws_lambda_function" "acctest_create" {
   role = "${aws_iam_role.lambda.arn}"
   handler = "exports.example"
   runtime = "nodejs8.10"
-  layers = ["${aws_lambda_layer_version.acctest_create.layer_arn}"]
+  layers = ["${aws_lambda_layer_version.acctest_create.arn}"]
 }
 
 data "aws_lambda_function" "acctest" {
