@@ -377,6 +377,8 @@ func TestAccAWSElasticacheReplicationGroup_redisClusterInVpc2(t *testing.T) {
 					resource.TestCheckResourceAttr(
 						resourceName, "snapshot_window", "02:00-03:00"),
 					resource.TestCheckResourceAttr(
+						resourceName, "configuration_endpoint_address", ""),
+					resource.TestCheckResourceAttr(
 						resourceName, "snapshot_retention_limit", "7"),
 					resource.TestCheckResourceAttrSet(
 						resourceName, "primary_endpoint_address"),
@@ -411,6 +413,7 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_Basic(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.num_node_groups", "2"),
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "1"),
 					resource.TestCheckResourceAttr(resourceName, "port", "6379"),
+					resource.TestCheckResourceAttr(resourceName, "primary_endpoint_address", ""),
 					resource.TestCheckResourceAttrSet(resourceName, "configuration_endpoint_address"),
 				),
 			},
